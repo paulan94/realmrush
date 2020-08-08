@@ -63,7 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CubeEditor.cs" />
+    <Compile Include="Assets\Scripts\CubeEditor.cs" />
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\Pathfinder.cs" />
+    <Compile Include="Assets\Scripts\Tower.cs" />
+    <Compile Include="Assets\Scripts\Waypoint.cs" />
+    <None Include="Assets\Sayantan\Props\Small\CruiseMissile\ReadMe.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/pan/gamedev/realmrush/Realm Rush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -32,24 +32,30 @@ public class Pathfinder : MonoBehaviour
     private void CalculatePath()
     {
         LoadBlocks();
-        ColorStartAndEnd();
         BreadthFirstSearch();
         CreatePath();
     }
 
     private void CreatePath()
     {
-        path.Add(endWayPoint);
+        SetAsPath(endWayPoint);
+        
+
         Waypoint prev = endWayPoint.exploredFrom;
         while (prev != startWayPoint)
         {
-            //add intermediate waypoints
-            path.Add(prev);
+            SetAsPath(prev);
             prev = prev.exploredFrom;
         }
         //add start waypoint and reverse list to get full path list
-        path.Add(startWayPoint);
+        SetAsPath(startWayPoint);
         path.Reverse();
+    }
+
+    private void SetAsPath(Waypoint waypoint)
+    {
+        path.Add(waypoint);
+        waypoint.isPlaceable = false;
     }
 
     private void BreadthFirstSearch()
@@ -99,12 +105,6 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    private void ColorStartAndEnd()
-    {//todo may want to move fn somewhere else
-        startWayPoint.SetTopColor(Color.green);
-        endWayPoint.SetTopColor(Color.red);
-    }
-
     private void LoadBlocks()
     {
         var waypoints = FindObjectsOfType<Waypoint>();
@@ -124,9 +124,4 @@ public class Pathfinder : MonoBehaviour
         //print("loaded" + grid.Count + " blocks");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

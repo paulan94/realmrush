@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 7333852270048213693}
-  targetEnemy: {fileID: 0}
-  towerRange: 80
+  towerRange: 45
   particleSystem: {fileID: 6858432723236443376}
+  targetEnemy: {fileID: 0}
+  baseWaypoint: {fileID: 0}
 --- !u!1001 &7334535893949042389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,6 +104,46 @@ PrefabInstance:
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4244516963008846373, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: ShapeModule.m_Texture
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}

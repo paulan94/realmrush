@@ -6,10 +6,16 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
+    [SerializeField] float movementPeriod = .5f;
+    [SerializeField] ParticleSystem goalExplodeParticle;
+    //[SerializeField] GameObject objectToChangeColor;
+
+
+    Waypoint endWaypoint;
+
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(FollowPath());
         Pathfinder pathfinder = FindObjectOfType<Pathfinder>(); //dangerous if more than 1 instance of pathfinder
         var path = pathfinder.GetPath();
         StartCoroutine(FollowPath(path));
@@ -20,13 +26,22 @@ public class EnemyMovement : MonoBehaviour
         foreach (Waypoint waypoint in path)
         {
             transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(1f);
+            //MeshRenderer meshRenderer = objectToChangeColor.GetComponent<MeshRenderer>();
+            waypoint.transform.Find("Block_Friendly").GetComponent<MeshRenderer>().material.color = Color.cyan;
+
+
+            yield return new WaitForSeconds(movementPeriod);
         }
+        SelfDestruct(); //this is where endwaypoint is reached
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SelfDestruct()
     {
-        
+        var vfx = Instantiate(goalExplodeParticle, transform.position, Quaternion.identity);
+        vfx.Play();
+
+        Destroy(vfx.gameObject, vfx.main.duration);
+        Destroy(gameObject);
     }
+
 }
